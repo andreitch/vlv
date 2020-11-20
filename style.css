@@ -1,0 +1,41 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/******************************************************** Utility Components ************************************************/
+:root {
+  font-size: 62.5%;
+
+  /************ Custom Properties *************/
+
+  /* Colors */
+  --color-primary: #730039;
+  --color-primary-m-light: hsla(330, 100%, 23%, 0.55);
+  --color-primary-m-dark: hsla(330, 100%, 23%, 0.85);
+
+  --color-secondary: #ffc513;
+  --color-secondary-m-light: hsla(45, 100%, 54%, 0.55);
+  --color-secondary-m-dark: rgba(255, 196, 19, 0.85);
+
+  --color-tertiary: #ff724c;
+  --color-tertiary-m-light: hsla(13, 100%, 65%, 0.55);
+  --color-tertiary-m-dark: rgba(255, 155, 76, 0.85);
+
+  --color-quaternary: #f6eedf;
+  --color-quaternary-m-light: hsla(39, 56%, 92%, 0.55);
+  --color-quaternary-m-dark: hsla(39, 56%, 92%, 0.85);
+
+  /* Transition Duration */
+  transition-duration: 0.3s;
+
+  /* Section Title Font Size */
+  --font-size-title: calc(2rem + 2vw);
+
+  /* Section Heading */
+  --padding-section: 8vh 3vw;
+}
