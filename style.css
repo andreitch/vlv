@@ -31,7 +31,7 @@
   --color-quaternary-m-dark: hsla(39, 56%, 92%, 0.85);
 
   /* Transition Duration */
-  transition-duration: 0.3s;
+  --transition-duration: 0.3s;
 
   /* Section Title Font Size */
   --font-size-title: calc(2rem + 2vw);
@@ -59,12 +59,232 @@ body {
   font-size: 2rem;
 }
 
+/* Anchor Tags */
+a:link,
+a:visited {
+  color: var(--color-quaternary);
+  text-decoration: none;
+  font-size: calc(0.5rem + 1vw);
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  position: relative;
+  transition: all var(--transition-duration) cubic-bezier(1, 0, 0, 1);
+  z-index: 1;
+}
+
+/* Paragraphs */
+p {
+  color: white;
+  font-size: calc(1rem + 1vw);
+  font-weight: 300;
+}
+
+/* List Items */
+
+li {
+  list-style: none;
+  margin-bottom: 4rem;
+}
+
+/* Icons */
+
+i {
+  font-size: var(--font-size-title);
+  color: var(--color-secondary);
+}
+
 /*********************** Main Styling ***********************/
 
 /* Header Section */
 header#header {
-  background-color: var(--color-primary);
   grid-column: container-start / container-end;
+  background: linear-gradient(
+      var(--color-primary-m-light),
+      var(--color-primary-m-light)
+    ),
+    url("img/hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Nav */
+
+.header__main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.header__main-nav input[type="checkbox"] {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  height: 5rem;
+  width: 5rem;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Hamburger */
+.header__main-nav--hamburger {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  height: 5rem;
+  width: 5rem;
+  padding: 1rem;
+  background-color: var(--color-secondary);
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+}
+
+/* Hamburger Lines */
+.header__main-nav--hamburger > div {
+  position: relative;
+  height: 0.3rem;
+  width: 100%;
+  background-color: var(--color-tertiary);
+
+  display: grid;
+  place-items: center;
+  transition: all var(--transition-duration) ease-in-out;
+}
+
+/* Hamburger Top and Bottom Lines */
+.header__main-nav--hamburger > div::before,
+.header__main-nav--hamburger > div::after {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  width: 60%;
+  height: inherit;
+  background-color: inherit;
+  z-index: 2;
+}
+
+.header__main-nav--hamburger > div::before {
+  left: 0;
+}
+
+.header__main-nav--hamburger > div::after {
+  top: 1rem;
+  right: 0;
+}
+
+/* Rotating the Manu */
+.header__main-nav
+  input[type="checkbox"]:checked
+  + .header__main-nav--hamburger
+  > div {
+  transform: rotate(135deg);
+}
+
+.header__main-nav
+  input[type="checkbox"]:checked
+  + .header__main-nav--hamburger
+  > div::before {
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform: rotate(270deg);
+}
+
+.header__main-nav
+  input[type="checkbox"]:checked
+  + .header__main-nav--hamburger
+  > div::after {
+  opacity: 0;
+}
+
+.header__main-nav
+  input[type="checkbox"]:checked:hover
+  + .header__main-nav--hamburger
+  > div {
+  transform: rotate(405deg);
+}
+
+/* Links Menu */
+.header__main-nav--menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  overflow: hidden;
+
+  display: grid;
+  place-items: center;
+}
+
+.header__main-nav--menu > div {
+  background-color: var(--color-secondary-m-dark);
+  height: 200%;
+  width: 200%;
+
+  display: grid;
+  place-items: center;
+
+  transform: scaleX(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.header__main-nav--menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Displaying the Menu when the checkbox is checked */
+.header__main-nav input[type="checkbox"]:checked ~ .header__main-nav--menu {
+  visibility: visible;
+}
+
+.header__main-nav
+  input[type="checkbox"]:checked
+  ~ .header__main-nav--menu
+  > div {
+  transform: scaleX(1);
+}
+
+.header__main-nav
+  input[type="checkbox"]:checked
+  ~ .header__main-nav--menu
+  > div
+  > div {
+  opacity: 1;
+}
+
+.header__main-nav--menu ul li a:link,
+.header__main-nav--menu ul li a:visited {
+  z-index: 5;
+  font-size: calc(1.5rem + 0.5vw);
+}
+
+.header__main-nav--menu ul li a:link::before,
+.header__main-nav--menu ul li a:visited::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transform: scaleY(0);
+  background-color: var(--color-primary-m-dark);
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+.header__main-nav--menu ul li a:active::before,
+.header__main-nav--menu ul li a:hover::before {
+  transform: scaleY(1);
 }
 
 /* Booking Content Section */
