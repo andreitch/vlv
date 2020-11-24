@@ -367,8 +367,52 @@ header#header {
 
 /* Booking Content Section */
 section#booking-content {
-  background-color: var(--color-secondary);
   grid-column: center-start / col-end 6;
+  padding: var(--padding-section);
+
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  grid-gap: 2vh;
+}
+
+.booking-content__title {
+  font-size: var(--font-size-title);
+  padding: 0 2rem 1rem;
+  font-weight: 300;
+  position: relative;
+}
+
+.booking-content__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  height: 0.2rem;
+  width: 30%;
+  background-color: var(--color-secondary);
+}
+
+.booking-content__para {
+  padding: 2rem;
+}
+
+section#booking-content p {
+  color: var(--color-primary);
+}
+
+.booking-content__icons {
+  margin-left: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.booking-content__icons--weather,
+.booking-content__icons--time {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 10vh;
+  place-items: center;
 }
 
 /* Booking Date Section */
@@ -435,4 +479,21 @@ section#testimonials {
 footer#footer {
   background-color: var(--color-primary);
   grid-column: container-start / container-end;
+}
+
+/********************************************** 1000px Mark *****************************************/
+@media screen and (max-width: 1000px) {
+  /* all links */
+  a:link,
+  a:visited {
+    font-size: calc(1rem + 1vw);
+  }
+}
+
+/********************************************** 600px Mark *****************************************/
+@media screen and (max-width: 600px) {
+  /* Header Section */
+  .header__logo__content--content__para {
+    font-size: 2rem;
+  }
 }
