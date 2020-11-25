@@ -412,13 +412,98 @@ section#booking-content p {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 10vh;
-  place-items: center;
+  justify-items: start;
+  align-items: center;
 }
 
 /* Booking Date Section */
 section#booking-date {
-  background-color: var(--color-tertiary);
   grid-column: col-start 7 / center-end;
+  padding: var(--padding-section);
+
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.booking-date__schedule {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2vw;
+  place-items: center;
+}
+
+.booking-date__schedule--arrival,
+.booking-date__schedule--departure,
+.booking-date__schedule--guests {
+  display: grid;
+  grid-row-gap: 3vh;
+}
+
+.booking-date__schedule--arrival h5,
+.booking-date__schedule--departure h5,
+.booking-date__schedule--guests h5 {
+  font-size: calc(1rem + 1vw);
+  text-align: center;
+}
+
+.booking-date__schedule--arrival > div,
+.booking-date__schedule--departure > div,
+.booking-date__schedule--guests > div {
+  background-color: var(--color-secondary);
+  padding: 2rem 4rem;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  position: relative;
+}
+
+.booking-date__schedule--arrival > div::before,
+.booking-date__schedule--departure > div::before,
+.booking-date__schedule--guests > div::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border-width: 1.5rem;
+  border-style: solid;
+  border-color: transparent transparent var(--color-secondary) transparent;
+  margin-left: -1.5rem;
+}
+
+.booking-date__schedule--arrival > div p:nth-of-type(2),
+.booking-date__schedule--departure > div p:nth-of-type(2),
+.booking-date__schedule--guests > div p:nth-of-type(2) {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.booking-date__contact {
+  align-self: end;
+}
+
+.booking-date__contact--link {
+  background-color: var(--color-secondary);
+  color: white;
+  transition: all var(--transition-duration) ease-in-out;
+}
+
+.booking-date__contact--link:hover,
+.booking-date__contact--link:active {
+  color: var(--color-secondary);
+  background-color: white;
+  border: 0.1rem solid var(--color-secondary);
+}
+
+.booking-date__contact p:first-of-type {
+  margin-top: 4rem;
+}
+
+.booking-date__contact p:nth-of-type(1),
+.booking-date__contact p:nth-of-type(2),
+.booking-date__contact p:nth-of-type(3) {
+  font-size: 2rem;
+  color: var(--color-primary);
 }
 
 /* Villas Section */
