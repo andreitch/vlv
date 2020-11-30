@@ -668,8 +668,60 @@ section#motto {
 
 /* Evets Content */
 section#events-content {
-  background-color: var(--color-tertiary);
   grid-column: container-start / col-end 9;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+section#events-content > div {
+  padding: var(--padding-section);
+  display: grid;
+
+  grid-template-areas:
+    "title"
+    "para";
+  grid-row-gap: 4vh;
+  align-items: center;
+  justify-items: start;
+}
+
+section#events-content > div h2[class*="title"] {
+  grid-area: title;
+  font-size: var(--font-size-title);
+  font-weight: 400;
+  color: white;
+}
+
+section#events-content > div h2[class*="para"] {
+  grid-area: para;
+  color: white;
+  font-weight: 500;
+}
+
+section#events-content > div:first-child {
+  background: linear-gradient(
+      var(--color-tertiary-m-light),
+      var(--color-tertiary-m-light)
+    ),
+    url("img/Events/beach-party.jpg");
+  border-right: solid 0.2rem var(--color-tertiary);
+}
+
+section#events-content > div:last-child {
+  background: linear-gradient(
+      var(--color-tertiary-m-light),
+      var(--color-tertiary-m-light)
+    ),
+    url("img/Events/culture-discovery.jpg");
+
+  border-left: solid 0.2rem var(--color-tertiary);
+}
+
+section#events-content > div:first-child,
+section#events-content > div:last-child {
+  background-size: cover;
+  background-position: center;
 }
 
 /* Events Text */
@@ -790,9 +842,24 @@ footer#footer {
     margin: 1.5rem 0 4rem 0;
   }
 
+  section#events-content > div:first-child,
+  section#events-content > div:last-child {
+    border: none;
+  }
+
+  section#events-content {
+    grid-column: center-start / center-end;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+
+  section#events-text {
+    display: none;
+  }
+
   .booking-content__para,
   div[class^="villas"] p[class^="villas"],
-  .motto__content--para {
+  .motto__content--para,
+  section#events-content > div p[class*="para"] {
     font-size: 1.5rem;
   }
 }
