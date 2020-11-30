@@ -510,7 +510,7 @@ section#booking-date {
 section#villas {
   grid-column: container-start / container-end;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(47rem, 1fr));
   grid-gap: 2rem;
 }
 
@@ -726,8 +726,23 @@ section#events-content > div:last-child {
 
 /* Events Text */
 section#events-text {
-  background-color: var(--color-primary);
+  background-color: var(--color-tertiary);
   grid-column: col-start 10 / center-end;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+}
+
+.events-text__content {
+  transform: rotate(0.25turn); /*90deg*/
+}
+
+.events-text__content--title {
+  font-size: var(--font-size-title);
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.2rem;
 }
 
 /* Gallery Text Section */
@@ -772,6 +787,9 @@ footer#footer {
   a:link,
   a:visited {
     font-size: calc(1rem + 1vw);
+  }
+  section#villas {
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   }
 }
 
