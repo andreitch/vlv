@@ -839,6 +839,10 @@ section#gallery-carousel {
   background-color: var(--color-primary);
 }
 
+.hidden {
+  display: none;
+}
+
 /* Features Content Section */
 section#features-content {
   background-color: var(--color-primary);
