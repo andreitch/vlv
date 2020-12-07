@@ -523,7 +523,7 @@ div[class^="villas"] {
 
 div[class^="villas"]:hover,
 div[class^="villas"]:active {
-  transform: scaleX(1.05);
+  transform: scale(1.05);
 }
 
 div[class^="villas"] h2[class^="villas"] {
@@ -935,6 +935,61 @@ section#testimonials {
 footer#footer {
   background-color: var(--color-primary);
   grid-column: container-start / container-end;
+  padding: 6vh 4vw;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+}
+
+.footer__social--link:link,
+.footer__social--link:visited {
+  display: inline-block;
+  background-color: var(--color-secondary);
+  border-radius: 4rem;
+  margin-right: 1rem;
+  box-shadow: 0.5rem 0.5rem 2rem 0.5rem var(--color-secondary-m-light),
+    -0.5rem -0.5rem 2rem 0.5rem var(--color-secondary-m-light);
+  transform: scale(0.8);
+  animation: social 3s linear infinite;
+}
+
+.footer__social--link i {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+@keyframes social {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0d;
+  }
+}
+
+.footer__social--link:link:nth-child(1),
+.footer__social--link:visited:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.footer__social--link:link:nth-child(2),
+.footer__social--link:visited:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.footer__social--link:link:nth-child(3),
+.footer__social--link:visited:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.footer__social--link:link:nth-child(4),
+.footer__social--link:visited:nth-child(4) {
+  animation-delay: 0.9s;
 }
 
 .testimonials__card:first-child .testimonials__card--front {
@@ -1023,6 +1078,13 @@ footer#footer {
   section#villas {
     grid-gap: 0;
   }
+
+  /* Footer */
+  footer#footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 3rem;
+  }
 }
 
 /********************************************** 600px Mark *****************************************/
@@ -1082,7 +1144,8 @@ footer#footer {
   div[class^="villas"] p[class^="villas"],
   .motto__content--para,
   section#events-content > div p[class*="para"],
-  section#features-content > div p[class*="para"] {
+  section#features-content > div p[class*="para"],
+  footer#footer p {
     font-size: 1.5rem;
   }
 
@@ -1096,6 +1159,10 @@ footer#footer {
     grid-row-gap: 3vh;
     grid-column-gap: 10vw;
     height: 12%;
+  }
+
+  footer#footer {
+    padding: 4vh 2vw;
   }
 }
 
