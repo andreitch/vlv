@@ -882,14 +882,96 @@ section#features-text {
 
 /* Testimonials Section */
 section#testimonials {
-  background-color: var(--color-tertiary);
   grid-column: center-start / center-end;
+  padding: var(--padding-section);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 28rem);
+  grid-gap: 5rem;
+  place-content: center;
+}
+
+.testimonials__card {
+  width: 28rem;
+  height: 50rem;
+  position: relative;
+}
+
+.testimonials__card--front,
+.testimonials__card--back {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 1s ease-in-out;
+  backface-visibility: hidden;
+  transform: perspective(100rem);
+
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: 3rem;
+}
+
+.testimonials__card--front h2 {
+  background-color: var(--color-secondary-m-light);
+  padding: 1rem;
+  border-bottom-right-radius: 15%;
+  border-bottom-left-radius: 15%;
+}
+
+.testimonials__card--back p {
+  place-self: center;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 /* Section Footer */
 footer#footer {
   background-color: var(--color-primary);
   grid-column: container-start / container-end;
+}
+
+.testimonials__card:first-child .testimonials__card--front {
+  background-image: url("img/Testimonials/testimonials-1.jpg");
+}
+
+.testimonials__card:nth-child(2) .testimonials__card--front {
+  background-image: url("img/Testimonials/testimonials-2.jpg");
+}
+
+.testimonials__card:nth-child(3) .testimonials__card--front {
+  background-image: url("img/Testimonials/testimonials-3.jpg");
+}
+
+.testimonials__card:nth-child(4) .testimonials__card--front {
+  background-image: url("img/Testimonials/testimonials-4.jpg");
+}
+
+.testimonials__card:nth-child(5) .testimonials__card--front {
+  background-image: url("img/Testimonials/testimonials-5.jpg");
+}
+
+.testimonials__card:nth-child(6) .testimonials__card--front {
+  background-image: url("img/Testimonials/testimonials-6.jpg");
+}
+
+.testimonials__card--back {
+  transform: perspective(100rem) rotateY(0.5turn);
+  background-color: var(--color-secondary);
+}
+
+.testimonials__card:hover .testimonials__card--front {
+  transform: perspective(100rem) rotateY(0.5turn);
+}
+
+.testimonials__card:hover .testimonials__card--back {
+  transform: perspective(100rem) rotateY(1turn);
 }
 
 /********************************************** 1000px Mark *****************************************/
